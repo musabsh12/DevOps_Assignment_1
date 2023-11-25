@@ -1,4 +1,3 @@
-
 const projectsData = [
     { name: 'Project 1', technology: 'C#' },
     { name: 'Project 2', technology: 'Java' },
@@ -17,15 +16,18 @@ const educationData = [
     { course: 'Object Oriented Programming', grade: '2nd year' }
 ];
 
+const certificationsData = [
+    'Certification 1',
+    'Certification 2',
+   
+];
 
 function filterProjects() {
     const filterText = document.getElementById('techFilter').value.toLowerCase();
     const projectList = document.getElementById('projectList');
 
-  
     projectList.innerHTML = '';
 
-  
     projectsData.forEach(project => {
         if (project.technology.toLowerCase().includes(filterText)) {
             const listItem = document.createElement('li');
@@ -34,7 +36,6 @@ function filterProjects() {
         }
     });
 }
-
 
 function populateEducation() {
     const educationList = document.getElementById('educationList');
@@ -46,5 +47,18 @@ function populateEducation() {
     });
 }
 
+function populateCertifications() {
+    const certificationsList = document.getElementById('certificationsList');
 
-window.onload = populateEducation;
+    certificationsData.forEach(certification => {
+        const listItem = document.createElement('li');
+        listItem.textContent = certification;
+        certificationsList.appendChild(listItem);
+    });
+}
+
+
+window.onload = function () {
+    populateEducation();
+    populateCertifications();
+};
